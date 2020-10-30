@@ -32,5 +32,5 @@ public class Pembelian {
 	@JoinColumn(name = "pemasokid", insertable = false, updatable = false)
 	private Pemasok pemasok;
 	private Integer pemasokid;
-	private String alamat_pemasok;
+	private String id_pemasok;
 }

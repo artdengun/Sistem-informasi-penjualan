@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,4 +23,7 @@ public class Barang {
 	private String nama_barang;
 	private String gambar;
 	private String keterangan_barang;
+
+	@OneToMany(mappedBy = "barang")
+	List<Penjualan> penjualans;
 }

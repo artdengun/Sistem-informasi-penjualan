@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -19,7 +20,8 @@ public class PelangganController {
 
 	@GetMapping("/pelanggan")
 	public String getPelanggan(Model model) {
-		model.addAttribute("pelanggan", pelangganService.getPelanggan());
+		List<Pelanggan> pelangganList = pelangganService.getPelanggan();
+		model.addAttribute("pelanggan", pelangganList);
 		return "pelanggan";
 	}
 

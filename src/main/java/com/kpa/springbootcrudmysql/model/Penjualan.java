@@ -26,4 +26,16 @@ public class Penjualan {
 	private Integer harga_satuan;
 	private Integer total_harga;
 	private Integer banyak;
+
+	@ManyToOne
+	@JoinColumn(name = "barangid", insertable = false, updatable = false)
+	private  Barang barang;
+	private Integer barangid;
+	private Integer id_barang;
+
+	@ManyToOne
+	@JoinColumn(name = "pelangganid", insertable = false, updatable = false)
+	private Pelanggan pelanggan;
+	private Integer pelangganid;
+	private Integer id_pelanggan;
 }

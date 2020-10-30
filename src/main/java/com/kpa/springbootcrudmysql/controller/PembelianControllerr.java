@@ -18,6 +18,8 @@ public class PembelianControllerr {
 	
 	@Autowired	private PembelianService pembelianService;
 	@Autowired private PemasokService pemasokService;
+
+
 	@GetMapping("/pembelians")
 	public String getPembelians(Model model) {
 		List<Pembelian> pembelianList = pembelianService.getPembelian();

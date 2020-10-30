@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -17,7 +18,8 @@ public class BarangController {
 
 	@GetMapping("/barang")
 	public String getBarang(Model model) {
-		model.addAttribute("barang", barangService.getBarang());
+		List<Barang> barangList = barangService.getBarang();
+		model.addAttribute("barang", barangList);
 		return "barang";
 	}
 

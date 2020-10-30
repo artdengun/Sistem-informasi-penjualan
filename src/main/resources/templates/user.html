@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/png" href="/img/icon.png"/>
-    <title>Sistem Informasi Penjualan : Data Barang</title>
+    <title>Sistem Informasi Penjualan : Data User</title>
     <!-- Bootstrap Styles-->
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -116,7 +116,7 @@
                         User</a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a th:href="@{/user}"><i class="fa fa-users" aria-hidden="true"></i>
+                            <a th:href="@{/users}"><i class="fa fa-users" aria-hidden="true"></i>
                                  Data User</a>
                         </li>
                         <li>
@@ -138,7 +138,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        Data Barang <small>PT. Batu Jaya</small>
+                        Data User <small>PT. Batu Jaya</small>
                     </h1>
 
                     <div class="row">
@@ -153,37 +153,37 @@
                                 <table class="table table-striped table-advance table-hover">
                                     <tbody>
                                     <tr>
-                                        <th><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> ID Barang</th>
+                                        <th><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> ID User</th>
                                         <th><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                            Nama Barang
+                                            Username
                                         </th>
                                         <th><i class="fa fa-money" aria-hidden="true"></i>
-                                            Gambar
+                                            Password
                                         </th>
                                         <th><i class="fa fa-check-square" aria-hidden="true"></i>
-                                            Keterangan Barang
+                                            Level
                                         </th>
                                         <th><i class="fa fa-cogs" aria-hidden="true"></i>
                                             Action
                                         </th>
                                     </tr>
-                                    <tr th:each="barang:${barang}">
-                                        <td th:text="${barang.id_barang}">ID Barang</td>
-                                        <td th:text="${barang.nama_barang}">Nama Barang</td>
-                                        <td th:text="${barang.gambar}">Gambar</td>
-                                        <td th:text="${barang.keterangan_barang}">Keterangan Barang</td>
+                                    <tr th:each="user:${user}">
+                                        <td th:text="${user.id_user}">ID User</td>
+                                        <td th:text="${user.username}">Username</td>
+                                        <td th:text="${user.password}">Password</td>
+                                        <td th:text="${user.level}">Level User</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn btn-primary" id="editButton"
-                                                   th:href="@{/barang/findById/(id_barang=${barang.id_barang})}"><i
+                                                   th:href="@{/user/findById/(id_user=${user.id_user})}"><i
                                                         class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                 </a>
                                                 <a class="btn btn-dark" id="detailsButton"
-                                                   th:href="@{/barang/findById/(id_barang=${barang.id_barang})}"><i
+                                                   th:href="@{/user/findById/(id_user=${user.id_user})}"><i
                                                         class="fa fa-caret-down" aria-hidden="true"></i>
                                                 </a>
                                                 <a class="btn btn-danger" id="deleteButton"
-                                                   th:href="@{/barang/delete/(id_barang=${barang.id_barang})}"><i
+                                                   th:href="@{/user/delete/(id_user=${user.id_user})}"><i
                                                         class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </a>
                                             </div>
@@ -206,11 +206,11 @@
 
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <form th:action="@{/barang/addNew}" method="post">
+        <form th:action="@{/user/addNew}" method="post">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="tambahModal">Tambah Data Barang</h5>
+                        <h5 class="modal-title" id="tambahModal">Tambah Data User</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -218,33 +218,33 @@
 
                     <div class="modal-body">
                         <div class="form-group row">
-                            <label for="id_barang" class="col-sm-4 col-form-label">Id Barang</label>
+                            <label for="id_user" class="col-sm-4 col-form-label">Id User</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="id_barang" name="id" placeholder="Id Barang"
+                                <input type="text" class="form-control" id="id_user" name="id_user" placeholder="Id User"
                                        disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="nama_barang" class="col-sm-4 col-form-label">Nama Barang</label>
+                            <label for="username" class="col-sm-4 col-form-label">Username</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="nama_barang"
-                                       name="nama_barang" placeholder="Nama Barang">
+                                <input type="text" class="form-control" id="username"
+                                       name="username" placeholder="Username">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="gambar" class="col-sm-4 col-form-label">Select Image: </label>
+                            <label for="password" class="col-sm-4 col-form-label">Password </label>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control-file" id="gambar" name="photo" placeholder="Select File">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="keterangan_barang" class="col-sm-4 col-form-label">Keterangan Barang</label>
+                            <label for="level" class="col-sm-4 col-form-label">Level User</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="keterangan_barang"
-                                       name="keterangan_barang" placeholder="Keterangan Barang">
+                                <input type="text" class="form-control" id="level"
+                                       name="level" placeholder="Level User">
                             </div>
                         </div>
                     <div class="modal-footer">
@@ -260,11 +260,11 @@
 
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <form th:action="@{/barang/update}" method="put">
+        <form th:action="@{/user/update}" method="put">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Contact Record</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit User Record</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -272,33 +272,33 @@
 
                     <div class="modal-body">
                         <div class="form-group row">
-                            <label for="id_barangEdit" class="col-sm-4 col-form-label">Id Barang</label>
+                            <label for="id_userEdit" class="col-sm-4 col-form-label">Id User</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="id_barangEdit" name="id_barangEdit" placeholder="Id Barang"
+                                <input type="text" class="form-control" id="id_userEdit" name="id" placeholder="Id User"
                                        disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="nama_barangEdit" class="col-sm-4 col-form-label">Nama Barang</label>
+                            <label for="usernameEdit" class="col-sm-4 col-form-label">Username</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="nama_barangEdit"
-                                       name="nama_barangEdit" placeholder="Nama Barang">
+                                <input type="text" class="form-control" id="usernameEdit"
+                                       name="usernameEdit" placeholder="Username">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="gambarEdit" class="col-sm-4 col-form-label">Upload Foto</label>
+                            <label for="passwordEdit" class="col-sm-4 col-form-label">Password </label>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control-file" id="gambarEdit" name="photo" placeholder="Select File">
+                                <input type="password" class="form-control" id="passwordEdit" name="passwordEdit" placeholder="Password">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="keterangan_barangEdit" class="col-sm-4 col-form-label">Keterangan Barang</label>
+                            <label for="levelEdit" class="col-sm-4 col-form-label">Level User</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="keterangan_barangEdit"
-                                       name="keterangan_barangEdit" placeholder="Keterangan Barang">
+                                <input type="text" class="form-control" id="levelEdit"
+                                       name="levelEdit" placeholder="Level User">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -324,33 +324,33 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
-                            <label for="id_barangDetails" class="col-sm-4 col-form-label">Id Barang</label>
+                            <label for="id_userDetails" class="col-sm-4 col-form-label">Id User</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="id_barangDetails" name="id_barangDetails" placeholder="Id Barang"
-                                       readonly>
+                                <input type="text" class="form-control" id="id_userDetails" name="id" placeholder="Id User"
+                                       disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="nama_barangDetails" class="col-sm-4 col-form-label">Nama Barang</label>
+                            <label for="usernameDetails" class="col-sm-4 col-form-label">Username</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="nama_barangDetails"
-                                       name="nama_barangDetails" placeholder="Nama Barang" readonly>
+                                <input type="text" class="form-control" id="usernameDetails"
+                                       name="usernameEdit" placeholder="Username">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="gambarDetails" class="col-sm-4 col-form-label">Upload Foto</label>
+                            <label for="passwordDetails" class="col-sm-4 col-form-label">Password </label>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control-file" id="gambarDetails" name="photo" placeholder="Select File" readonly>
+                                <input type="password" class="form-control" id="passwordDetails" name="passwordEdit" placeholder="Password">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="keterangan_barangDetails" class="col-sm-4 col-form-label">Keterangan Barang</label>
+                            <label for="levelDetails" class="col-sm-4 col-form-label">Level User</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="keterangan_barangDetails"
-                                       name="keterangan_barangDetails" placeholder="Keterangan Barang" readonly>
+                                <input type="text" class="form-control" id="levelDetails"
+                                       name="levelEdit" placeholder="Level User">
                             </div>
                         </div>
                         <div class="modal-footer">

@@ -13,19 +13,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id_pelanggan")
-public class Pelanggan {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id_user")
+public class User {
 		
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private Integer id_pelanggan;
-	private String nama_pelanggan;
-	private String alamat_pelanggan;
-	private String tlp_pelanggan;
-	private String email_pelanggan;
-
-
-	@OneToMany(mappedBy = "pelanggan")
-	List<Penjualan> penjualans;
+	private Integer id_user;
+	private String username;
+	private String password;
+	private String level;
 }
