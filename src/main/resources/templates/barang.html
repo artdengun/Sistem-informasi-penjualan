@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/png" href="/img/icon.png"/>
+    <title>Sistem Informasi Penjualan : Data Barang</title>
+    <!-- Bootstrap Styles-->
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <!-- FontAwesome Styles-->
+    <link href="css/font-awesome.css" rel="stylesheet"/>
+    <!-- Custom Styles-->
+    <link href="css/custom-styles.css" rel="stylesheet"/>
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}"><i class="fa fa-leaf" aria-hidden="true"></i><strong>PT BATU JAYA</strong></a>
+        </div>
+
+        <ul class="nav navbar-top-links navbar-right">
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+    </nav>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+
+
+                <li>
+                    <a class="active-menu" th:href="@{/}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-table"></i> Pembelian Bahan </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a th:href="@{/pembelian}">Data Pembelian Bahan</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/laporanPembelian}">Laporan Data Pembelian</a>
+                        </li>
+                    </ul>
+                <li>
+                <li>
+                    <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Barang</a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a th:href="@{/barang}">Data Barang</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/laporanBarang}">Laporan Barang</a>
+                        </li>
+                    </ul>
+                <li>
+                <li>
+                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Pelanggan</a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a th:href="@{/pelanggan}">Data Pelanggan</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/laporanPelanggan}">Laporan Pelanggan</a>
+                        </li>
+                    </ul>
+                <li>
+                <li>
+                    <a href="#"><i class="fa fa-table"></i> Pemasok</a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a th:href="@{/pemasok}">Data Pemasok</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/laporanPemasok}">Laporan Pemasok</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-table"></i> Penjualan</a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a th:href="@{/penjualan}">Data Penjualan</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/laporanPenjualan}">Laporan Penjualan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                        User</a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a th:href="@{/user}"><i class="fa fa-users" aria-hidden="true"></i>
+                                 Data User</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/laporanUser}">Laporan User</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">
+                        Data Barang <small>PT. Batu Jaya</small>
+                    </h1>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                </header>
+                                <button type="button" class="btn btn-info" data-toggle="modal"
+                                        data-target="#addModal"><i class="fa fa-plus-square" aria-hidden="true"></i>
+                                </button>
+
+                                <table class="table table-striped table-advance table-hover">
+                                    <tbody>
+                                    <tr>
+                                        <th><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> ID Barang</th>
+                                        <th><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            Nama Barang
+                                        </th>
+                                        <th><i class="fa fa-money" aria-hidden="true"></i>
+                                            Gambar
+                                        </th>
+                                        <th><i class="fa fa-check-square" aria-hidden="true"></i>
+                                            Keterangan Barang
+                                        </th>
+                                        <th><i class="fa fa-cogs" aria-hidden="true"></i>
+                                            Action
+                                        </th>
+                                    </tr>
+                                    <tr th:each="barang:${barang}">
+                                        <td th:text="${barang.id_barang}">ID Barang</td>
+                                        <td th:text="${barang.nama_barang}">Nama Barang</td>
+                                        <td th:text="${barang.gambar}">Gambar</td>
+                                        <td th:text="${barang.keterangan_barang}">Keterangan Barang</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a class="btn btn-primary" id="editButton"
+                                                   th:href="@{/barang/findById/(id_barang=${barang.id_barang})}"><i
+                                                        class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                </a>
+                                                <a class="btn btn-dark" id="detailsButton"
+                                                   th:href="@{/barang/findById/(id_barang=${barang.id_barang})}"><i
+                                                        class="fa fa-caret-down" aria-hidden="true"></i>
+                                                </a>
+                                                <a class="btn btn-danger" id="deleteButton"
+                                                   th:href="@{/barang/delete/(id_barang=${barang.id_barang})}"><i
+                                                        class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /. ROW  -->
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+
+
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <form th:action="@{/barang/addNew}" method="post">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tambahModal">Tambah Data Barang</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="id_barang" class="col-sm-4 col-form-label">Id Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="id_barang" name="id" placeholder="Id Barang"
+                                       disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="nama_barang" class="col-sm-4 col-form-label">Nama Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="nama_barang"
+                                       name="nama_barang" placeholder="Nama Barang">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gambar" class="col-sm-4 col-form-label">Select Image: </label>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control-file" id="gambar" name="photo" placeholder="Select File">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="keterangan_barang" class="col-sm-4 col-form-label">Keterangan Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="keterangan_barang"
+                                       name="keterangan_barang" placeholder="Keterangan Barang">
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <form th:action="@{/barang/update}" method="put">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Contact Record</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="id_barangEdit" class="col-sm-4 col-form-label">Id Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="id_barangEdit" name="id_barangEdit" placeholder="Id Barang"
+                                       disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="nama_barangEdit" class="col-sm-4 col-form-label">Nama Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="nama_barangEdit"
+                                       name="nama_barangEdit" placeholder="Nama Barang">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gambarEdit" class="col-sm-4 col-form-label">Upload Foto</label>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control-file" id="gambarEdit" name="photo" placeholder="Select File">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="keterangan_barangEdit" class="col-sm-4 col-form-label">Keterangan Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="keterangan_barangEdit"
+                                       name="keterangan_barangEdit" placeholder="Keterangan Barang">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <form>
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel"> Barang Views</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="id_barangDetails" class="col-sm-4 col-form-label">Id Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="id_barangDetails" name="id_barangDetails" placeholder="Id Barang"
+                                       readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="nama_barangDetails" class="col-sm-4 col-form-label">Nama Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="nama_barangDetails"
+                                       name="nama_barangDetails" placeholder="Nama Barang" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gambarDetails" class="col-sm-4 col-form-label">Upload Foto</label>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control-file" id="gambarDetails" name="photo" placeholder="Select File" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="keterangan_barangDetails" class="col-sm-4 col-form-label">Keterangan Barang</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="keterangan_barangDetails"
+                                       name="keterangan_barangDetails" placeholder="Keterangan Barang" readonly>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this record?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="" class="btn btn-primary" id="delRef">Yes, Delete</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.js"></script>
+    <!-- nice scroll -->
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="js/scripts.js"></script>
+    <script src="js/barang.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="js/jquery.metisMenu.js"></script>
+    <!-- Custom Js -->
+    <script src="js/custom-scripts.js"></script>
+
+
+</div>
+</body>
+</html>

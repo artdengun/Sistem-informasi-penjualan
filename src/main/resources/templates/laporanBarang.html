@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Barang PT. Batu Jaya</title>
+    <link rel="icon" type="image/png" href="/img/icon.png"/>
+    <!--  script laporan css-->
+    <link  href="css/buttons.dataTables.min.css" rel="stylesheet">
+    <link  href="css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- akhir laporan css -->
+	<!-- Bootstrap Styles-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/}"><i class="fa fa-gear"></i> <strong>PT. BATU JAYA</strong></a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu" th:href="@{/}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table"></i> Pembelian Bahan </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/pembelian}">Data Pembelian Bahan</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/laporanPembelian}">Laporan Data Pembelian</a>
+                            </li>
+                        </ul>
+                    <li>
+                    <li>
+                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Barang</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/barang}">Data Barang</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/laporanBarang}">Laporan Barang</a>
+                            </li>
+                        </ul>
+                    <li>
+                    <li>
+                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Pelanggan</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/pelanggan}">Data Pelanggan</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/laporanPelanggan}">Laporan Pelanggan</a>
+                            </li>
+                        </ul>
+                    <li>
+                    <li>
+                        <a href="#"><i class="fa fa-table"></i> Pemasok</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/pemasok}">Data Pemasok</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/laporanPemasok}">Laporan Pemasok</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table"></i> Penjualan</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/penjualan}">Data Penjualan</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/laporanPenjualan}">Laporan Penjualan</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                            User</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/user}"><i class="fa fa-users" aria-hidden="true"></i>
+                                    Data User</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/laporanUser}">Laporan User</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+			 <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Advanced Tables -->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Laporan Data Barang PT. BATU JAYA
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered table-hover" id="laporan" style="width:100%">
+                                                <thead>
+                                                <tr>
+                                                    <th>ID Barang</th>
+                                                    <th>Nama Barang</th>
+                                                    <th>Gambar</th>
+                                                    <th>Keterangan Barang</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="barang:${barang}">
+                                                    <td th:text="${barang.id_barang}">Id barang</td>
+                                                    <td th:text="${barang.nama_barang}">nama barang</td>
+                                                    <td th:text="${barang.gambar}">Gambar</td>
+                                                    <td th:text="${barang.keterangan_barang}">Keterangan Barang</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Advanced Tables -->
+                            </div>
+                        </div>
+                        <!-- /. ROW  -->
+                    </div>
+                </div> 
+                 <!-- /. ROW  -->
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+    </div>
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+      <!-- Bootstrap Js -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="js/jquery.metisMenu.js"></script>
+      <!-- Custom Js -->
+    <script src="js/custom-scripts.js"></script>
+
+    <!-- script laporan -->
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.buttons.min.js"></script>
+    <script src="js/pdfmake.min.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/buttons.html5.min.js"></script>
+    <script src="js/buttons.flash.min.js"></script>
+    <script src="js/buttons.print.min.js"></script>
+    <script src="js/laporan.js"></script>
+</body>
+</html>
