@@ -27,4 +27,10 @@ public class Pembelian {
 	private Integer banyak_pembelian;
 	private Integer total_harga_pembelian;
 	private String remarks;
+
+	@ManyToOne
+	@JoinColumn(name = "pemasokid", insertable = false, updatable = false)
+	private Pemasok pemasok;
+	private Integer pemasokid;
+	private String alamat_pemasok;
 }

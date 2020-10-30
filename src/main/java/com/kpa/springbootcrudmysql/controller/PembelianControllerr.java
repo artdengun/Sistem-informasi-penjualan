@@ -17,11 +17,15 @@ import java.util.Optional;
 public class PembelianControllerr {
 	
 	@Autowired	private PembelianService pembelianService;
-
-	@GetMapping("/pembelian")
+	@Autowired private PemasokService pemasokService;
+	@GetMapping("/pembelians")
 	public String getPembelians(Model model) {
 		List<Pembelian> pembelianList = pembelianService.getPembelian();
-		model.addAttribute("pembelian", pembelianList);
+		model.addAttribute("pembelians", pembelianList);
+
+		List<Pemasok> pemasokList = pemasokService.getPemasok();
+		model.addAttribute("pemasok", pemasokList);
+
 		return "pembelian";
 	}
 
@@ -34,7 +38,7 @@ public class PembelianControllerr {
 	@PostMapping("/pembelian/addNew")
 	public String addNew(Pembelian pembelian) {
 		pembelianService.save(pembelian);
-		return "redirect:/pembelian";
+		return "redirect:/pembelians";
 	}
 	
 	@RequestMapping("pembelian/findById")
@@ -46,13 +50,13 @@ public class PembelianControllerr {
 	@RequestMapping(value="/pembelian/update", method= {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Pembelian pembelian) {
 		pembelianService.save(pembelian);
-		return "redirect:/pembelian";
+		return "redirect:/pembelians";
 	}
 	
 	@RequestMapping(value="/pembelian/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(Integer id_pembelian) {
 		pembelianService.delete(id_pembelian);
-		return "redirect:/pembelian";
+		return "redirect:/pembelians";
 	}
 
 }
