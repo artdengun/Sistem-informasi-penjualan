@@ -28,4 +28,10 @@ public class Pelanggan {
 
 	@OneToMany(mappedBy = "pelanggan")
 	List<Penjualan> penjualans;
+
+	@ManyToOne
+	@JoinColumn(name = "userid", insertable = false, updatable = false)
+	private User user;
+	private Integer userid;
+	private Integer id_user;
 }

@@ -58,10 +58,11 @@
                     <a href="#"><i class="fa fa-table"></i> Pembelian Bahan </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a th:href="@{/pembelians}">Data Pembelian Bahan</a>
+                            <a th:href="@{/pembelians}"><i class="fa fa-table"></i>Data Pembelian Bahan</a>
                         </li>
                         <li>
-                            <a th:href="@{/laporanPembelian}">Laporan Data Pembelian</a>
+                            <a th:href="@{/laporanPembelian}"><i class="fa fa-file" aria-hidden="true"></i>
+                                Laporan Data Pembelian</a>
                         </li>
                     </ul>
                 <li>
@@ -69,48 +70,57 @@
                     <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Barang</a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a th:href="@{/barang}">Data Barang</a>
+                            <a th:href="@{/barang}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Data Barang</a>
                         </li>
                         <li>
-                            <a th:href="@{/laporanBarang}">Laporan Barang</a>
-                        </li>
-                    </ul>
-                <li>
-                <li>
-                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Pelanggan</a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a th:href="@{/pelanggan}">Data Pelanggan</a>
-                        </li>
-                        <li>
-                            <a th:href="@{/laporanPelanggan}">Laporan Pelanggan</a>
+                            <a th:href="@{/laporanBarang}"><i class="fa fa-file" aria-hidden="true"></i>
+                                Laporan Barang</a>
                         </li>
                     </ul>
                 <li>
                 <li>
-                    <a href="#"><i class="fa fa-table"></i> Pemasok</a>
+                    <a href="#"><i class="fa fa-male" aria-hidden="true"></i>Pelanggan</a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a th:href="@{/pemasok}">Data Pemasok</a>
+                            <a th:href="@{/pelanggans}"><i class="fa fa-male" aria-hidden="true"></i>
+                                Data Pelanggan</a>
                         </li>
                         <li>
-                            <a th:href="@{/laporanPemasok}">Laporan Pemasok</a>
+                            <a th:href="@{/laporanPelanggan}"><i class="fa fa-file" aria-hidden="true"></i>
+                                Laporan Pelanggan</a>
+                        </li>
+                    </ul>
+                <li>
+                <li>
+                    <a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>
+                        Pemasok</a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a th:href="@{/pemasoks}"><i class="fa fa-briefcase" aria-hidden="true"></i>
+                                Data Pemasok</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/laporanPemasok}"><i class="fa fa-file" aria-hidden="true"></i>
+                                Laporan Pemasok</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-table"></i> Penjualan</a>
+                    <a href="#"><i class="fa fa-usd" aria-hidden="true"></i>
+                        Penjualan</a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a th:href="@{/penjualans}">Data Penjualan</a>
+                            <a th:href="@{/penjualans}"><i class="fa fa-usd" aria-hidden="true"></i>
+                                Data Penjualan</a>
                         </li>
                         <li>
-                            <a th:href="@{/laporanPenjualan}">Laporan Penjualan</a>
+                            <a th:href="@{/laporanPenjualan}"><i class="fa fa-file" aria-hidden="true"></i>
+                                Laporan Penjualan</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                    <a href="#"><i class="fa fa-users" aria-hidden="true"></i>
                         User</a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -118,7 +128,8 @@
                                 Data User</a>
                         </li>
                         <li>
-                            <a th:href="@{/laporanUser}"><i class="fa fa-users" aria-hidden="true"></i>Laporan User</a>
+                            <a th:href="@{/laporanUser}"><i class="fa fa-file" aria-hidden="true"></i>
+                                Laporan User</a>
                         </li>
                     </ul>
                 </li>
@@ -237,10 +248,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="ddlCountryDetails" class="col-sm-4 col-form-label">Pemasok: </label>
+                            <label for="ddlPemasokAdd" class="col-sm-4 col-form-label">Pemasok: </label>
                             <div class="col-sm-6">
-                            <select class="form-control" id="ddlCountryAdd" name="pemasokid">
-                                <option>-Pilih-</option>
+                            <select class="form-control" id="ddlPemasokAdd" name="pemasokid">
+                                <option>-Pilih Pemasok-</option>
                                 <option th:each="pemasok : ${pemasok}"
                                         th:value="${pemasok.id_pemasok}"
                                         th:text="${pemasok.id_pemasok}">
@@ -328,9 +339,9 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ddlCountryDetails" class="col-sm-4 col-form-label">Pemasok: </label>
+                                <label for="ddlPemasokEdit" class="col-sm-4 col-form-label">Pemasok: </label>
                                 <div class="col-sm-6">
-                                    <select class="form-control" id="ddlCountryAdd" name="pemasokid">
+                                    <select class="form-control" id="ddlPemasokEdit" name="pemasokid">
                                         <option>-Pilih-</option>
                                         <option th:each="pemasok : ${pemasok}"
                                                 th:value="${pemasok.id_pemasok}"
@@ -421,9 +432,9 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ddlCountryDetails" class="col-sm-4 col-form-label">Pemasok: </label>
+                                <label for="ddlPemasokDetails" class="col-sm-4 col-form-label">Pemasok: </label>
                                 <div class="col-sm-6">
-                                    <select class="form-control" id="ddlCountryAdd" name="pemasokid" disabled>
+                                    <select class="form-control" id="ddlPemasokDetails" name="pemasokid" disabled>
                                         <option>-Pilih-</option>
                                         <option th:each="pemasok : ${pemasok}"
                                                 th:value="${pemasok.id_pemasok}"

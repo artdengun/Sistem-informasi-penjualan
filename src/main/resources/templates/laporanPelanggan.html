@@ -62,10 +62,11 @@
                         <a href="#"><i class="fa fa-table"></i> Pembelian Bahan </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a th:href="@{/pembelians}">Data Pembelian Bahan</a>
+                                <a th:href="@{/pembelians}"><i class="fa fa-table"></i>Data Pembelian Bahan</a>
                             </li>
                             <li>
-                                <a th:href="@{/laporanPembelian}">Laporan Data Pembelian</a>
+                                <a th:href="@{/laporanPembelian}"><i class="fa fa-file" aria-hidden="true"></i>
+                                    Laporan Data Pembelian</a>
                             </li>
                         </ul>
                     <li>
@@ -73,48 +74,57 @@
                         <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Barang</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a th:href="@{/barang}">Data Barang</a>
+                                <a th:href="@{/barang}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Data Barang</a>
                             </li>
                             <li>
-                                <a th:href="@{/laporanBarang}">Laporan Barang</a>
-                            </li>
-                        </ul>
-                    <li>
-                    <li>
-                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Pelanggan</a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a th:href="@{/pelanggan}">Data Pelanggan</a>
-                            </li>
-                            <li>
-                                <a th:href="@{/laporanPelanggan}">Laporan Pelanggan</a>
+                                <a th:href="@{/laporanBarang}"><i class="fa fa-file" aria-hidden="true"></i>
+                                    Laporan Barang</a>
                             </li>
                         </ul>
                     <li>
                     <li>
-                        <a href="#"><i class="fa fa-table"></i> Pemasok</a>
+                        <a href="#"><i class="fa fa-male" aria-hidden="true"></i>Pelanggan</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a th:href="@{/pemasok}">Data Pemasok</a>
+                                <a th:href="@{/pelanggans}"><i class="fa fa-male" aria-hidden="true"></i>
+                                    Data Pelanggan</a>
                             </li>
                             <li>
-                                <a th:href="@{/laporanPemasok}">Laporan Pemasok</a>
+                                <a th:href="@{/laporanPelanggan}"><i class="fa fa-file" aria-hidden="true"></i>
+                                    Laporan Pelanggan</a>
+                            </li>
+                        </ul>
+                    <li>
+                    <li>
+                        <a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>
+                            Pemasok</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a th:href="@{/pemasoks}"><i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    Data Pemasok</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/laporanPemasok}"><i class="fa fa-file" aria-hidden="true"></i>
+                                    Laporan Pemasok</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-table"></i> Penjualan</a>
+                        <a href="#"><i class="fa fa-usd" aria-hidden="true"></i>
+                            Penjualan</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a th:href="@{/penjualans}">Data Penjualan</a>
+                                <a th:href="@{/penjualans}"><i class="fa fa-usd" aria-hidden="true"></i>
+                                    Data Penjualan</a>
                             </li>
                             <li>
-                                <a th:href="@{/laporanPenjualan}">Laporan Penjualan</a>
+                                <a th:href="@{/laporanPenjualan}"><i class="fa fa-file" aria-hidden="true"></i>
+                                    Laporan Penjualan</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                        <a href="#"><i class="fa fa-users" aria-hidden="true"></i>
                             User</a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -122,13 +132,11 @@
                                     Data User</a>
                             </li>
                             <li>
-                                <a th:href="@{/laporanUser}"><i class="fa fa-users" aria-hidden="true"></i>Laporan User</a>
+                                <a th:href="@{/laporanUser}"><i class="fa fa-file" aria-hidden="true"></i>
+                                    Laporan User</a>
                             </li>
                         </ul>
                     </li>
-                </ul>
-                </li>
-
                 </ul>
 
             </div>
@@ -152,6 +160,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>ID Pelanggan</th>
+                                                    <th>ID User</th>
                                                     <th>Nama Pelanggan</th>
                                                     <th>Alamat Pelanggan </th>
                                                     <th>Telephone Pelanggan</th>
@@ -161,6 +170,7 @@
                                                 <tbody>
                                                 <tr th:each="pelanggan:${pelanggan}">
                                                     <td th:text="${pelanggan.id_pelanggan}">ID pelanggan</td>
+                                                    <td th:text="${pelanggan.userid}">ID User</td>
                                                     <td th:text="${pelanggan.nama_pelanggan}">Nama Pelanggan </td>
                                                     <td th:text="${pelanggan.alamat_pelanggan}">Alamat Pelanggan </td>
                                                     <td th:text="${pelanggan.tlp_pelanggan}">Telephone Pelanggan</td>

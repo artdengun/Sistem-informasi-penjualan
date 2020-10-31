@@ -9,6 +9,7 @@ $('document').ready(function() {
 		var href= $(this).attr('href');		
 		$.get(href, function(pembelian, status){
 			$('#id_pembelianEdit').val(pembelian.id_pembelian);
+			$('#ddlPemasokEdit').val(pembelian.pemasokId);
 			$('#tanggal_pembelianEdit').val(pembelian.tanggal_pembelian);
 			$('#ddlCountryEdit').val(pembelian.pemasokId);
 			$('#nama_barang_pembelianEdit').val(pembelian.nama_barang_pembelian);
@@ -25,6 +26,7 @@ $('document').ready(function() {
 		var href= $(this).attr('href');
 		$.get(href, function(pembelian, status){
 			$('#id_pembelianDetails').val(pembelian.id_pembelian);
+			$('#ddlPemasokDetails').val(pembelian.pemasokId);
 			$('#tanggal_pembelianDetails').val(pembelian.tanggal_pembelian);
 			$('#ddlCountryDetails').val(pembelian.pemasokId);
 			$('#nama_barang_pembelianDetails').val(pembelian.nama_barang_pembelian);

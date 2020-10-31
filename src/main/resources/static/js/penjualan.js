@@ -9,6 +9,8 @@ $('document').ready(function() {
 		var href= $(this).attr('href');		
 		$.get(href, function(penjualan, status){
 			$('#id_penjualanEdit').val(penjualan.id_penjualan);
+			$('#ddlBarangEdit').val(penjualan.barangid);
+			$('#ddlPelangganEdit').val(penjualan.pelangganid);
 			$('#tanggal_penjualanEdit').val(penjualan.tanggal_penjualan);
 			$('#harga_satuanEdit').val(penjualan.harga_satuan);
 			$('#total_hargaEdit').val(penjualan.total_harga);
@@ -22,6 +24,8 @@ $('document').ready(function() {
 		var href= $(this).attr('href');
 		$.get(href, function(penjualan, status){
 			$('#id_penjualanDetails').val(penjualan.id_penjualan);
+			$('#ddlBarangDetails').val(penjualan.barangid);
+			$('#ddlPelangganDetails').val(penjualan.pelangganid);
 			$('#tanggal_penjualanDetails').val(penjualan.tanggal_penjualan);
 			$('#harga_satuanDetails').val(penjualan.harga_satuan);
 			$('#total_hargaDetails').val(penjualan.total_harga);
