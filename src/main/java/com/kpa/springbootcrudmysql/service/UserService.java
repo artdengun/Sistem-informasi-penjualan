@@ -15,13 +15,14 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
+
 	//Return nilai Barang
 	public List<User> getUser(){
-		return userRepository.findAll();
+		return (List<User>) userRepository.findAll();
 	}
 
 	public List<User> getLaporanUser() {
-			return userRepository.findAll();
+			return (List<User>) userRepository.findAll();
 	}
 
 	//SAve new contact

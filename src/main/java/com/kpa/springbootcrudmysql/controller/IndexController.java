@@ -1,23 +1,27 @@
 package com.kpa.springbootcrudmysql.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping
-public class applicationController {
+public class IndexController {
+
+
+    @GetMapping("/register")
+    public String getRegister(){
+        return "register";
+    }
+
+    @GetMapping("/login")
+    public String getLogin(){
+        return "login";
+    }
 
     @GetMapping("/")
     public String getIndex(){
         return "index";
     }
 
-//    @GetMapping("/laporanPembelian")
-//    public String getLaporanPembelian(){
-//        return "laporanPembelian";
-//    }
 
     @GetMapping("/empty")
     public String getEmpty(){
