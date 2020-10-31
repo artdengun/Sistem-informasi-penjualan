@@ -9,6 +9,7 @@ $('document').ready(function() {
 		var href= $(this).attr('href');		
 		$.get(href, function(pemasok, status){
 			$('#id_pemasokEdit').val(pemasok.id_pemasok);
+			$('#ddlUserEdit').val(pemasok.userid);
 			$('#nama_pemasokEdit').val(pemasok.nama_pemasok);
 			$('#alamat_pemasokEdit').val(pemasok.alamat_pemasok);
 			$('#telephone_pemasokEdit').val(pemasok.telephone_pemasok);
@@ -22,6 +23,7 @@ $('document').ready(function() {
 		var href= $(this).attr('href');
 		$.get(href, function(pemasok, status){
 			$('#id_pemasokDetails').val(pemasok.id_pemasok);
+			$('#ddlUserDetails').val(pemasok.userid);
 			$('#nama_pemasokDetails').val(pemasok.nama_pemasok);
 			$('#alamat_pemasokDetails').val(pemasok.alamat_pemasok);
 			$('#telephone_pemasokDetails').val(pemasok.telephone_pemasok);
