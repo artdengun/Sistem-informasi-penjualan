@@ -17,6 +17,12 @@ public class IndexController {
         return "login";
     }
 
+
+    @GetMapping("/logout")
+    public String getLogout(){
+        return "login";
+    }
+
     @GetMapping("/")
     public String getIndex(){
         return "index";

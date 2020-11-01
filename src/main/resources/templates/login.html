@@ -1,26 +1,38 @@
-<link rel="stylesheet" href="css/login.css">
-<link href="css/css4/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="js/js4/bootstrap.min.js"></script>
-<script src="js/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/login.css">
+    <link href="css/css4/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="js/js4/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <title>Document</title>
+</head>
+<body>
 
 <div class="sidenav">
     <div class="login-main-text">
-        <h2>Application<br> Login Page</h2>
-        <p>Login or register from here to access.</p>
+        <h2>PT BATU JAYA</h2>
+        <p>Sistem Informasi Penjualan</p>
     </div>
 </div>
 <div class="main">
     <div class="col-md-6 col-sm-12">
         <div class="login-form">
-            <form>
+            <form th:action="@{/login}" method="post">
                 <div class="form-group">
                     <label>User Name</label>
-                    <input type="text" class="form-control" placeholder="User Name">
+                    <input type="text" class="form-control" placeholder="Username"  name="username" autofocus>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" name="password">
                 </div>
                 <button type="submit" class="btn btn-black">Login</button>
                 <button type="submit" class="btn btn-secondary">Register</button>
@@ -28,3 +40,5 @@
         </div>
     </div>
 </div>
+</body>
+</html>
