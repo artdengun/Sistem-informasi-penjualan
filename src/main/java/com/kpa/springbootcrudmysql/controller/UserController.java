@@ -19,21 +19,15 @@ public class UserController {
 	@Autowired	private UserService userService;
 
 
-	@GetMapping("/users")
-	public String getCountries() {
-		return "User";
-	}
-
-
 	//Modified method to Add a new user User
-	@PostMapping(value="users/addNew")
+	@PostMapping(value="user/addNew")
 	public RedirectView addNew(User user, RedirectAttributes redir) {
 
 		userService.save(user);
 
 		RedirectView  redirectView= new RedirectView("/login",true);
 
-		redir.addFlashAttribute("message",	"You successfully registered! You can now login");
+		redir.addFlashAttribute("message",	"Berhasil Mendaftar! Silahkan Login");
 
 		return redirectView;
 	}
@@ -50,12 +44,12 @@ public class UserController {
 		model.addAttribute("user", userService.getLaporanUser());
 		return "laporanUser";
 	}
-
-	@PostMapping("/user/addNew")
-	public String addNew(User user) {
-		userService.save(user);
-		return "redirect:/user";
-	}
+//
+//	@PostMapping("/user/addNew")
+//	public String addNew(User user) {
+//		userService.save(user);
+//		return "redirect:/user";
+//	}
 
 	@RequestMapping("/user/findById")
 	@ResponseBody
