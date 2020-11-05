@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="/img/icon.png"/>
 
     <link rel="stylesheet" href="css/login.css">
     <link href="css/css4/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -12,13 +13,14 @@
     <script src="js/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
-    <title>Register PT Batu Jaya</title>
+    <title>Register | PT CHILD CASAVVA</title>
 </head>
 <body>
 
 <div class="sidenav">
     <div class="login-main-text">
-        <h2>PT BATU JAYA</h2>
+        <img src="img/regis.png"  class="rounded mx-auto d-block" alt="Gambar Register" height="230" width="450">
+        <br><h2>PT CHILD CASAVVA</h2>
             <h3>REGISTRASI</h3>
         <p>Pastikan Mengisi Data Dengan Benar !</p>
     </div>
@@ -27,7 +29,6 @@
     <div class="col-md-6 col-sm-12">
         <div class="login-form">
             <form th:action="@{/user/addNew}" method="post">
-
                 <div class="form-group">
                     <label>User Name</label>
                     <input type="text" class="form-control" placeholder="Masukan Username Anda"  id="username" name="username" autofocus>
@@ -41,14 +42,8 @@
                     <label>Confirm Password</label>
                     <input type="password" class="form-control" placeholder="Confrim Password" id="confrimPassword">
                 </div>
-
-                <label class="checkbox">
-                    <hr>
-                    <span class="pull-right"><a th:href="@{/lupa-password}">Lupa Password?</a></span>
-                    <hr>
-                </label><br>
                 <button type="submit" class="btn btn-success">Register</button>
-                <button type="button" class="btn btn-"><a th:href="@{/login}">Login Page</a></button>
+                <button type="button" class="btn btn-secondary"><a th:href="@{/login}">Login Page</a></button>
             </form>
         </div>
     </div>
